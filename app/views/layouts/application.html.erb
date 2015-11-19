@@ -10,6 +10,7 @@
 <body>
 <%= yield %>
   <p class="notice"><%= notice %></p>
+  <!-- these could go in a header so its visable on page load  -->
          <p class="alert"><%= alert %></p>
          <% if current_user %>
            <h3><%= link_to 'Signout', destroy_user_session_path, :method => :delete %></h3>
