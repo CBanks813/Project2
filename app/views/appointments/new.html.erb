@@ -1,0 +1,11 @@
+<h1>Book New Appointment</h1>
+
+<%= form_for [@service, @appointment] do |f| %>
+  <%= f.label :start_time %>
+  <%= f.datetime_select :start_time %>
+
+  <%= f.label :end_time %>
+  <%= f.datetime_select :end_time %>
+
+  <%= f.submit "Make Appointment"%>
+<% end %>

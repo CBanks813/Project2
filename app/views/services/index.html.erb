@@ -1,3 +1,11 @@
 <h1>Services</h1>
+<ul>
+  <% @services.each do |service| %>
+    <h2><%= service.name %></h2>
+    <h3>$<%= service.price %></h3>
+    <p><%= service.body %></p>
 
-<button id="appt">Book Appointment</button>
+    <%= link_to 'Book Appointment', new_service_appointment_path(service) %>
+
+  <% end %>
+</ul>
