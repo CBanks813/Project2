@@ -22,13 +22,14 @@ before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destro
 
   def show
     @user = current_user
+    @service = Service.find(params[:service_id])
     @appointments = Appointment.where(user_id: @user)
-    
+
   end
 
   def edit
     @service = Service.find(params[:service_id])
-    @appointment = Appointment.find(params[:id])
+    @appointment = @service.appointments.(params[:id])
   end
 
   def update
@@ -36,7 +37,10 @@ before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destro
   end
 
   def destroy
-    @appointment = Appointment.find(params[:id])
+    @service = Service.find(params[:service_id])
+    @appointment = @service.appointments.find(params[:id])
+    @appointment.destroy
+    redirect_to service_appointment_path(@service, @appointment)
   end
 
   private

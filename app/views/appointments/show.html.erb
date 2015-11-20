@@ -1,4 +1,9 @@
 <% @appointments.each do |appointment| %>
+  <p><%= @service.name %></p>
   <p><%= appointment.start_time %></p>
   <p><%= appointment.end_time %></p>
+  <%= link_to 'Delete', service_appointment_path(@service, appointment), method: :delete, class: 'delete' %>
+
 <% end %>
+
+<p><%= link_to 'Back', services_path(@services)%></p>
